@@ -16,7 +16,7 @@ interface ModalProps {
   children?: React.ReactNode;
 }
 
-export default function Modal({
+export function Modal({
   title,
   description,
   isOpen,
