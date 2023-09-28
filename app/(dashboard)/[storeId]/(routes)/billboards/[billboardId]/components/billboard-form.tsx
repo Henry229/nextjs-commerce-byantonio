@@ -1,7 +1,6 @@
 'use client';
 
 import { AlertModal } from '@/components/modals/alert-modal';
-import ApiAlert from '@/components/ui/api-alert';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -15,7 +14,7 @@ import { Heading } from '@/components/ui/heading';
 import ImageUpload from '@/components/ui/image-upload';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { useOrigin } from '@/hooks/use-origin';
+// import { useOrigin } from '@/hooks/use-origin';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Billboard } from '@prisma/client';
 import axios from 'axios';
@@ -40,7 +39,7 @@ interface BillboardFormProps {
 export function BillboardForm({ initialData }: BillboardFormProps) {
   const params = useParams();
   const router = useRouter();
-  const origin = useOrigin();
+  // const origin = useOrigin();
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -72,6 +71,7 @@ export function BillboardForm({ initialData }: BillboardFormProps) {
         await axios.post(`/api/${params.storeId}/billboards`, data);
       }
       router.refresh();
+      router.push(`${params.storeId}/billboards`);
       toast.success(toastMessage);
     } catch (error: any) {
       toast.error('Something went wrong.');
