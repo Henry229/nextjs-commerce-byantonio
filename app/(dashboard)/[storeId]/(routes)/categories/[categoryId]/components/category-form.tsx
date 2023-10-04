@@ -32,7 +32,7 @@ import {
 } from '@/components/ui/select';
 
 const formSchema = z.object({
-  name: z.string().min(2),
+  name: z.string().min(1),
   billboardId: z.string().min(1),
 });
 
